@@ -13,7 +13,7 @@ window.VRenabled = VRDetector.isAvailable()
 
 var isLatestAvailable = VRDetector.isLatestAvailable(),
   sceneManager, $ = jQuery,
-  interiorGeometry = 'interior2',
+  interiorGeometry = 'interior2', // 室内几何体-材质球等信息
   exteriorGeometry = 'exterior2',
   startGeometry = 'start',
   assetsDir = window.isMobile ? 'static/assets_mobile/' : 'static/assets/',
@@ -110,7 +110,6 @@ async function initResources() {
   var resourceLoader = new ResourceLoader(resources);
 
   resourceLoader.load().then(function(resources) {
-    debugger;
     console.log('loaded')
     // 加载几何体场景及其脚本配置
     loadScene(startGeometry).then(function() {

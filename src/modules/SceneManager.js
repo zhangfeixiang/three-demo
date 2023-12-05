@@ -270,7 +270,7 @@ class SceneManager extends BaseSceneManager {
     // 画布拖拽浏览(PC)
     if (!window.isMobile) {
       $('canvas').on('mousemove', function(event) {
-        console.log(`画布 mousemove ${event}`)
+        // console.log(`画布 mousemove ${event}`)
         var coords = calcMousePosition(event, this.containerOffset, this.containerWidth, this.containerHeight)
         this.scenePicker && this.scenePicker.updateMouseCoords(coords)
         this.hudPicker && this.hudPicker.updateMouseCoords(coords)
@@ -279,7 +279,7 @@ class SceneManager extends BaseSceneManager {
 
     // 画布点击（点击地板前进、点击抬头显换材质）
     $('canvas').on('tap', function(event) {
-      console.log(`画布 tap ${event}`)
+      // console.log(`画布 tap`)
       if (window.isMobile) {
         var coords = calcMousePosition(event, this.containerOffset, this.containerWidth, this.containerHeight)
         this.scenePicker && this.scenePicker.updateMouseCoords(coords)
@@ -289,6 +289,8 @@ class SceneManager extends BaseSceneManager {
       if (!this.camera.moving && !this.camera.rotating && this.camera.enabled) {
         hudHitObject = this.hud && this.hudPicker && this.hud.visible && this.hudPicker.hitTest()
         sceneHitObject = this.scenePicker && this.scenePicker.hitTest()
+        console.log('hudHitObject', hudHitObject)
+        console.log('sceneHitObject', sceneHitObject)
       }
       // 点击地板更新地面白色圆圈标记
       if (window.isMobile && !hudHitObject && sceneHitObject && sceneHitObject.name === 'floor') {
@@ -438,6 +440,7 @@ class SceneManager extends BaseSceneManager {
   }
 
   // 处理对象点选事件
+  // TODO:点击事件位置
   handlePickerEvents() {
     if (this.scenePicker) {
       this.scenePicker.on('pick', function(pickObject, point) {

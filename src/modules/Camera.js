@@ -54,7 +54,7 @@ var Camera = function(params) {
   this._target.position.z = -1
   this.add(this._target)
   this.mode = Camera.LOOK_MODE
-  debugger
+
   if (params.states) {
     this.initStates(params.states)
     if (this.states.start) {

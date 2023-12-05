@@ -134,6 +134,7 @@ MaterialManager.prototype = {
     var material = this.materials[mesh.name][index]
     this.crossFadeMaterial(this.objects[mesh.name], material)
   },
+  // 更换材质
   crossFadeMaterial(meshes, material) {
     debugger
     var tween = new window.TWEEN.Tween(),

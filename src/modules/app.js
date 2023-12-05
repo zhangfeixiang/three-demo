@@ -1,3 +1,4 @@
+// 备份老代码
 import Config from './Config'
 import VRDetector from './VRDetector'
 import SceneManager from './SceneManager'
@@ -105,7 +106,7 @@ function initResources() {
     sh: ['room', 'studio'], // irradiance.json 辐射图
     textures: ['static/textures/white.png', 'static/textures/normal.png', 'static/textures/waternormals.jpg', 'static/textures/marker.png', 'static/textures/circle.png', 'static/textures/corner-gradient.png', 'static/textures/flare.png']
   }
-  debugger
+
   if (ZFX.Extensions.get('EXT_shader_texture_lod')) {
     resources.cubemaps = ['room/cubemap.bin'] // 高光贴图（椅背、灯罩等使用pbr.fs/vs）
   } else {

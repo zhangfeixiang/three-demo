@@ -96,6 +96,7 @@ class ObjectPicker extends Events {
     }
     // 进入检测到的碰撞对象
     if (hitObject && !this.currentObj) {
+      console.log('进入碰撞对象', hitObject.name)
       // if (hitObject.name === 'wall_right') {
       //   alert("点击更换")
       // }
