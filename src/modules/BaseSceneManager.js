@@ -7,7 +7,7 @@ import TimerManager from './TimerManager'
 import FPSCounter from './FPSCounter'
 import THREE from './../../static/js/three.min.js'
 import _ from 'lodash'
-import ZFX from './../../static/js/three.min.js'
+
 
 // 窗口大小调整处理器，调整时同步画布大小
 function resizeHandler(event) {
@@ -46,13 +46,13 @@ class BaseSceneManager extends Events {
     }
 
     // 渲染器：初始化
-    this.renderer = new ZFX.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
       canvas: params.canvas || document.querySelector('canvas'),
       preserveDrawingBuffer: params.preserveDrawingBuffer !== undefined ? params.preserveDrawingBuffer : undefined
     })
-    ZFX.Extensions = this.renderer.extensions  // 扩展到全局变量的渲染器插件信息
+    THREE.Extensions = this.renderer.extensions  // 扩展到全局变量的渲染器插件信息
 
     // 渲染器：设置像素比、画布尺寸、自动清空、清除色（背景色）
     var maxPixelRatio = params.maxPixelRatio ? Math.min(window.devicePixelRatio, params.maxPixelRatio) : window.devicePixelRatio
@@ -61,7 +61,7 @@ class BaseSceneManager extends Events {
     this.setSize(params.width || window.innerWidth, params.height || window.innerHeight)
     params.autoClear !== undefined && (this.renderer.autoClear = params.autoClear)
     params.clearColor !== undefined && this.renderer.setClearColor(params.clearColor)
-    params.supportsTextureLod !== undefined && params.supportsTextureLod !== true || ZFX.Extensions.get("EXT_shader_texture_lod")
+    params.supportsTextureLod !== undefined && params.supportsTextureLod !== true || THREE.Extensions.get("EXT_shader_texture_lod")
 
     this.clock = new THREE.Clock()
 

@@ -121,7 +121,6 @@ async function initResources() {
           //   $start.show()
           //   $progress.hide()
           // })
-          startScene()
           // 如果可以自动启动，则启动场景
           if (Config.AUTOSTART && (!window.VRenabled || !hasVRDisplays)) {
             hasStarted = true
